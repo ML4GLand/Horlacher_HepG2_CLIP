@@ -209,5 +209,7 @@ done
 
 # Rename and select final files
 finalize_files "$rbp"
+awk '$6 == "+" {print}' peaks.crosslink.bed > peaks.crosslink.pos.bed
+awk '$6 == "-" {print}' peaks.crosslink.bed > peaks.crosslink.neg.bed
 
 echo "Pipeline completed. Original BAMs, BigWigs, and peaks.bed files retained."
